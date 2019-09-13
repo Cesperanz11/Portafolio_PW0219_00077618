@@ -1,0 +1,36 @@
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+header > button {
+  border: 0;
+  margin-left: 10px;
+  border-radius: 7px/7px;
+  padding: 10px;
+  opacity: 0.8;
+}
+
+header > button :hover {
+  opacity: 1;
+}
+
+header .uno {
+  background-color: purple;
+  color: whitesmoke;
+}
+
+header .dos {
+  background-color: blue;
+  color: whitesmoke;
+}
+
+header .tres {
+  background-color: #eb4f4f;
+  color: whitesmoke;
+}
+/*# sourceMappingURL=style.css.map */

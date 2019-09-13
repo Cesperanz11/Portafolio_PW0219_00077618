@@ -1,0 +1,29 @@
+@mixin color_boton($colorcito){
+    background-color: $colorcito;
+    color: whitesmoke;
+}
+
+header{
+    display: flex;
+    justify-content: flex-end;
+        >button{
+            border:0;
+            margin-left:10px;
+            border-radius: 7px/7px;
+            padding: 10px;
+            opacity: 0.8;
+
+                :hover{
+                    opacity:1;
+                }
+        }
+        .uno{
+            @include color_boton(purple);
+        }
+        .dos{
+            @include color_boton(blue);
+        }
+        .tres{
+            @include color_boton(rgb(235, 79, 79));
+        }
+}
