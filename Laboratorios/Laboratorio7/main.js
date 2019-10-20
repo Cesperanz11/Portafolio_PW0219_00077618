@@ -43,8 +43,16 @@ let carnet_field =  document.querySelector("#carnet_field");
 
             table_body.removeChild(elementNode);
         });
+        let cellVerifier = document.createElement("td");
+        let newInput = document.createElement("input");
+        newInput.classList.add("form-control");
+        newInput.value = idCounter;
 
-        idCounter++;
+        cellVerifier.appendChild(newInput);
+        new_row.appendChild(cellVerifier);
+
+
+        //idCounter++;
 
         table_body.appendChild(new_row);
     };
