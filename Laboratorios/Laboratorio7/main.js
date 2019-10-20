@@ -20,8 +20,8 @@ let carnet_field =  document.querySelector("#carnet_field");
             `<th scope='row'>${carnet}</th>
             <td>${schedule}</td>
             <td>${datetime.toLocaleString()}</td>
-            <td>${late}</td>`
-        table_body.appendChild(new_row);
+            <td>${late}</td>`;
+     //   table_body.appendChild(new_row);
 
         let cellContainer = document.createElement("td");
 
@@ -34,25 +34,33 @@ let carnet_field =  document.querySelector("#carnet_field");
         cellContainer.appendChild(newBtn);
         new_row.appendChild(cellContainer);
 
+         //Agregando input
+         let cellVerifier = document.createElement("td");
+         let newInput = document.createElement("input");
+         newInput.classList.add("form-control");
+         cellVerifier.appendChild(newInput);
+         
+         new_row.appendChild(cellVerifier);
+
         newBtn.addEventListener("click", event => {
             let idElement = event.srcElement.value;
+            //Guardando el valor del input
+            let verifier = newImput.value;
 
             let elementNode = document.querySelector(
             `tr>td>button[value='${idElement}']`
             ).parentElement.parentElement;
 
-            table_body.removeChild(elementNode);
+            if(carnet==verifier){
+                table_body.removeChild(elementNode);
+                }else{
+                    alert("Necesita ingresar el numero de carnet correcto");
+                };
+    
         });
-        let cellVerifier = document.createElement("td");
-        let newInput = document.createElement("input");
-        newInput.classList.add("form-control");
-        newInput.value = idCounter;
-
-        cellVerifier.appendChild(newInput);
-        new_row.appendChild(cellVerifier);
 
 
-        //idCounter++;
+        idCounter++;
 
         table_body.appendChild(new_row);
     };
