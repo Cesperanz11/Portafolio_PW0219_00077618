@@ -20,8 +20,8 @@ let carnet_field =  document.querySelector("#carnet_field");
             `<th scope='row'>${carnet}</th>
             <td>${schedule}</td>
             <td>${datetime.toLocaleString()}</td>
-            <td>${late}</td>`;
-     //   table_body.appendChild(new_row);
+            <td>${late}</td>`
+        table_body.appendChild(new_row);
 
         let cellContainer = document.createElement("td");
 
@@ -41,26 +41,28 @@ let carnet_field =  document.querySelector("#carnet_field");
          cellVerifier.appendChild(newInput);
          
          new_row.appendChild(cellVerifier);
+         
 
         newBtn.addEventListener("click", event => {
             let idElement = event.srcElement.value;
-            //Guardando el valor del input
-            let verifier = newImput.value;
+            let verificador = newInput.value;//Guardando el valor del input
+        
 
             let elementNode = document.querySelector(
             `tr>td>button[value='${idElement}']`
             ).parentElement.parentElement;
 
-            if(carnet==verifier){
-                table_body.removeChild(elementNode);
-                }else{
-                    alert("Necesita ingresar el numero de carnet correcto");
-                };
+            //Comparación del carnet con el valor del input
+        if (carnet == verificador){
+            table_body.removeChild(elementNode);
+            }else{
+            alert("Inserte el valor de carnet correspondiente a eliminar");
+            };
     
         });
 
 
-        idCounter++;
+        idCounter ++;
 
         table_body.appendChild(new_row);
     };
@@ -81,16 +83,15 @@ let carnet_field =  document.querySelector("#carnet_field");
     */
 
     submit_btn.addEventListener("click", ()=>{
-        let carnet = carnet_field.value
-        let schedule = schedule_dropdown.options[schedule_dropdown.selectedIndex].text
-        let late = parseLateSwitch(late_switch.checked)
+        let carnet = carnet_field.value;
+        let schedule = schedule_dropdown.options[schedule_dropdown.selectedIndex].text;
+        let late = parseLateSwitch(late_switch.checked);
 
-        addStudent(carnet, schedule, late)
 
         if(carnet_regex.test(carnet)){
-            addStudent(carnet, schedule, late)
+            addStudent(carnet, schedule, late);
         }else{
-            alert("Formáto de carnet no válido")
+            alert("Formáto de carnet no válido");
         }
     })
 
